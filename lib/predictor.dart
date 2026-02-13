@@ -37,11 +37,20 @@ class _PredictorTabState extends State<PredictorTab> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Text(
+              'She Loves Me? She Loves Me Not?',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24.0,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 40.0),
             GestureDetector(
-              onTap:
-                  _generateAnswer, // Now tapping the question generates an answer
+              onTap: _generateAnswer,
               child: const Text(
-                'Will you get called back after the interview?',
+                'Ask a question, click me!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24.0,
@@ -51,6 +60,15 @@ class _PredictorTabState extends State<PredictorTab> {
               ),
             ),
             const SizedBox(height: 40.0),
+            Text(
+              _currentAnswer,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
           ],
         ),
       ),
