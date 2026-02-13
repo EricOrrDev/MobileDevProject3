@@ -17,51 +17,90 @@ class BusinessCardTab extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey[800], // Non-white background
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 60.0,
-              backgroundImage: NetworkImage(myProfile.imageUrl),
-              backgroundColor: Colors.white,
-            ),
-            const SizedBox(height: 20.0),
-            Text(
-              myProfile.name,
-              style: TextStyle(
-                fontFamily: 'Source Sans Pro',
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircleAvatar(
+                radius: 60.0,
+                backgroundImage: NetworkImage(myProfile.imageUrl),
+                backgroundColor: Colors.white,
               ),
-            ),
-            Text(
-              myProfile.title,
-              style: TextStyle(
-                fontFamily: 'Source Sans Pro',
-                fontSize: 18.0,
-                color: Colors.blueGrey[100],
-                letterSpacing: 2.5,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 20.0),
+              Text(
+                myProfile.name,
+                style: TextStyle(
+                  fontFamily: 'Source Sans Pro',
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-              width: 150.0,
-              child: Divider(color: Colors.blueGrey.shade100),
-            ),
-            Card(
-              margin: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 25.0,
+              Text(
+                myProfile.title,
+                style: TextStyle(
+                  fontFamily: 'Source Sans Pro',
+                  fontSize: 18.0,
+                  color: Colors.blueGrey[100],
+                  letterSpacing: 2.5,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              //this was needlessly hard to find, why the hell is it called an inkwell??
-              child: InkWell(
-                onTap: () => _launchURL('tel:${myProfile.phone}'),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(color: Colors.blueGrey.shade100),
+              ),
+              Card(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 25.0,
+                ),
+                //this was needlessly hard to find, why the hell is it called an inkwell??
+                child: InkWell(
+                  onTap: () => _launchURL('tel:${myProfile.phone}'),
+                  child: ListTile(
+                    leading: Icon(Icons.phone, color: Colors.blueGrey[900]),
+                    title: Text(
+                      myProfile.phone,
+                      style: TextStyle(
+                        color: Colors.blueGrey[900],
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 25.0,
+                ),
+                child: InkWell(
+                  onTap: () => _launchURL(myProfile.github),
+                  child: ListTile(
+                    leading: Icon(Icons.web, color: Colors.blueGrey[900]),
+                    title: Text(
+                      myProfile.github.replaceFirst('https://', ''),
+                      style: TextStyle(
+                        color: Colors.blueGrey[900],
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                margin: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 25.0,
+                ),
                 child: ListTile(
-                  leading: Icon(Icons.phone, color: Colors.blueGrey[900]),
+                  leading: Icon(Icons.email, color: Colors.blueGrey[900]),
                   title: Text(
-                    myProfile.phone,
+                    myProfile.email,
                     style: TextStyle(
                       color: Colors.blueGrey[900],
                       fontFamily: 'Source Sans Pro',
@@ -70,45 +109,8 @@ class BusinessCardTab extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-            Card(
-              margin: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 25.0,
-              ),
-              child: InkWell(
-                onTap: () => _launchURL(myProfile.github),
-                child: ListTile(
-                  leading: Icon(Icons.web, color: Colors.blueGrey[900]),
-                  title: Text(
-                    myProfile.github.replaceFirst('https://', ''),
-                    style: TextStyle(
-                      color: Colors.blueGrey[900],
-                      fontFamily: 'Source Sans Pro',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              margin: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 25.0,
-              ),
-              child: ListTile(
-                leading: Icon(Icons.email, color: Colors.blueGrey[900]),
-                title: Text(
-                  myProfile.email,
-                  style: TextStyle(
-                    color: Colors.blueGrey[900],
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
