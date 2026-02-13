@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project3/profile_data.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BusinessCardTab extends StatelessWidget {
   const BusinessCardTab({super.key});
+
+  Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $urlString';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +55,18 @@ class BusinessCardTab extends StatelessWidget {
                 vertical: 10.0,
                 horizontal: 25.0,
               ),
-              child: ListTile(
-                leading: Icon(Icons.phone, color: Colors.blueGrey[900]),
-                title: Text(
-                  myProfile.phone,
-                  style: TextStyle(
-                    color: Colors.blueGrey[900],
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 20.0,
+              //this was needlessly hard to find, why the hell is it called an inkwell??
+              child: InkWell(
+                onTap: () => _launchURL('tel:${myProfile.phone}'),
+                child: ListTile(
+                  leading: Icon(Icons.phone, color: Colors.blueGrey[900]),
+                  title: Text(
+                    myProfile.phone,
+                    style: TextStyle(
+                      color: Colors.blueGrey[900],
+                      fontFamily: 'Source Sans Pro',
+                      fontSize: 20.0,
+                    ),
                   ),
                 ),
               ),
@@ -64,14 +76,17 @@ class BusinessCardTab extends StatelessWidget {
                 vertical: 10.0,
                 horizontal: 25.0,
               ),
-              child: ListTile(
-                leading: Icon(Icons.web, color: Colors.blueGrey[900]),
-                title: Text(
-                  myProfile.github,
-                  style: TextStyle(
-                    color: Colors.blueGrey[900],
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 20.0,
+              child: InkWell(
+                onTap: () => _launchURL(myProfile.github),
+                child: ListTile(
+                  leading: Icon(Icons.web, color: Colors.blueGrey[900]),
+                  title: Text(
+                    myProfile.github.replaceFirst('https://', ''),
+                    style: TextStyle(
+                      color: Colors.blueGrey[900],
+                      fontFamily: 'Source Sans Pro',
+                      fontSize: 20.0,
+                    ),
                   ),
                 ),
               ),
