@@ -7,21 +7,15 @@ class ResumeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      // Allows the content to be scrollable if it exceeds screen height
       padding: const EdgeInsets.all(
         16.0,
       ), // Padding around the entire resume content
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.start, // Aligns content to the left
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          // Contact Info Section
           Text(
             myResume.contactInfo.name,
-            style: const TextStyle(
-              fontSize: 28.0,
-              fontWeight: FontWeight.bold, // Bolding the name as requested
-            ),
+            style: const TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
           ),
           Text(
             myResume.contactInfo.location,
@@ -34,34 +28,32 @@ class ResumeTab extends StatelessWidget {
           const SizedBox(height: 20.0), // Spacer
 
           _buildSectionTitle('EDUCATION'),
-          ...myResume.education.map((edu) => _buildEducationItem(edu)).toList(),
+          ...myResume.education.map((edu) => _buildEducationItem(edu)),
           const SizedBox(height: 20.0),
 
           _buildSectionTitle('PROJECTS'),
-          ...myResume.projects.map((proj) => _buildProjectItem(proj)).toList(),
+          ...myResume.projects.map((proj) => _buildProjectItem(proj)),
           const SizedBox(height: 20.0),
 
           _buildSectionTitle('SKILLS'),
-          ...myResume.skills.map((skill) => _buildSkillItem(skill)).toList(),
+          ...myResume.skills.map((skill) => _buildSkillItem(skill)),
           const SizedBox(height: 20.0),
 
           _buildSectionTitle('ACTIVITIES AND LEADERSHIP'),
-          ...myResume.activitiesAndLeadership
-              .map((activity) => _buildActivityItem(activity))
-              .toList(),
+          ...myResume.activitiesAndLeadership.map(
+            (activity) => _buildActivityItem(activity),
+          ),
           const SizedBox(height: 20.0),
 
-          // Work Experience Section
           _buildSectionTitle('WORK EXPERIENCE'),
-          ...myResume.workExperience
-              .map((work) => _buildWorkExperienceItem(work))
-              .toList(),
+          ...myResume.workExperience.map(
+            (work) => _buildWorkExperienceItem(work),
+          ),
         ],
       ),
     );
   }
 
-  // Helper widget to build consistent section titles
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -76,7 +68,6 @@ class ResumeTab extends StatelessWidget {
     );
   }
 
-  // Helper widget to build an education item
   Widget _buildEducationItem(EducationItem item) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -96,7 +87,6 @@ class ResumeTab extends StatelessWidget {
     );
   }
 
-  // Helper widget to build a project item
   Widget _buildProjectItem(ProjectItem item) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -107,18 +97,14 @@ class ResumeTab extends StatelessWidget {
             '${item.title} ${item.date}',
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
           ),
-          ...item.description
-              .map(
-                (desc) =>
-                    Text('• $desc', style: const TextStyle(fontSize: 14.0)),
-              )
-              .toList(),
+          ...item.description.map(
+            (desc) => Text('• $desc', style: const TextStyle(fontSize: 14.0)),
+          ),
         ],
       ),
     );
   }
 
-  // Helper widget to build a skill item
   Widget _buildSkillItem(SkillCategory item) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4.0),
@@ -129,7 +115,6 @@ class ResumeTab extends StatelessWidget {
     );
   }
 
-  // Helper widget to build an activity item
   Widget _buildActivityItem(ActivityItem item) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -144,18 +129,14 @@ class ResumeTab extends StatelessWidget {
             '${item.organization}, ${item.location}',
             style: const TextStyle(fontSize: 16.0),
           ),
-          ...item.description
-              .map(
-                (desc) =>
-                    Text('• $desc', style: const TextStyle(fontSize: 14.0)),
-              )
-              .toList(),
+          ...item.description.map(
+            (desc) => Text('• $desc', style: const TextStyle(fontSize: 14.0)),
+          ),
         ],
       ),
     );
   }
 
-  // Helper widget to build a work experience item
   Widget _buildWorkExperienceItem(WorkExperienceItem item) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -170,12 +151,9 @@ class ResumeTab extends StatelessWidget {
             '${item.company}, ${item.location}',
             style: const TextStyle(fontSize: 16.0),
           ),
-          ...item.description
-              .map(
-                (desc) =>
-                    Text('• $desc', style: const TextStyle(fontSize: 14.0)),
-              )
-              .toList(),
+          ...item.description.map(
+            (desc) => Text('• $desc', style: const TextStyle(fontSize: 14.0)),
+          ),
         ],
       ),
     );
