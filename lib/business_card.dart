@@ -23,12 +23,12 @@ class BusinessCardTab extends StatelessWidget {
             children: <Widget>[
               CircleAvatar(
                 radius: 60.0,
-                backgroundImage: NetworkImage(myProfile.imageUrl),
+                backgroundImage: NetworkImage(profile.imageUrl),
                 backgroundColor: Colors.white,
               ),
               const SizedBox(height: 20.0),
               Text(
-                myProfile.name,
+                profile.name,
                 style: TextStyle(
                   fontFamily: 'Source Sans Pro',
                   fontSize: 30.0,
@@ -37,7 +37,7 @@ class BusinessCardTab extends StatelessWidget {
                 ),
               ),
               Text(
-                myProfile.title,
+                profile.title,
                 style: TextStyle(
                   fontFamily: 'Source Sans Pro',
                   fontSize: 18.0,
@@ -58,11 +58,11 @@ class BusinessCardTab extends StatelessWidget {
                 ),
                 //this was needlessly hard to find, why the hell is it called an inkwell??
                 child: InkWell(
-                  onTap: () => _launchURL('tel:${myProfile.phone}'),
+                  onTap: () => _launchURL('tel:${profile.phone}'),
                   child: ListTile(
                     leading: Icon(Icons.phone, color: Colors.blueGrey[900]),
                     title: Text(
-                      myProfile.phone,
+                      profile.phone,
                       style: TextStyle(
                         color: Colors.blueGrey[900],
                         fontFamily: 'Source Sans Pro',
@@ -78,11 +78,11 @@ class BusinessCardTab extends StatelessWidget {
                   horizontal: 25.0,
                 ),
                 child: InkWell(
-                  onTap: () => _launchURL(myProfile.github),
+                  onTap: () => _launchURL(profile.github),
                   child: ListTile(
                     leading: Icon(Icons.web, color: Colors.blueGrey[900]),
                     title: Text(
-                      myProfile.github.replaceFirst('https://', ''),
+                      profile.github.replaceFirst('https://', ''),
                       style: TextStyle(
                         color: Colors.blueGrey[900],
                         fontFamily: 'Source Sans Pro',
@@ -100,7 +100,7 @@ class BusinessCardTab extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(Icons.email, color: Colors.blueGrey[900]),
                   title: Text(
-                    myProfile.email,
+                    profile.email,
                     style: TextStyle(
                       color: Colors.blueGrey[900],
                       fontFamily: 'Source Sans Pro',

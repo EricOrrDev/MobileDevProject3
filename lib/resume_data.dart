@@ -42,10 +42,7 @@ class SkillCategory {
   final String category;
   final String details;
 
-  const SkillCategory({
-    required this.category,
-    required this.details,
-  });
+  const SkillCategory({required this.category, required this.details});
 }
 
 class ActivityItem {
@@ -149,7 +146,8 @@ const myResume = Resume(
   skills: [
     SkillCategory(
       category: 'Languages',
-      details: 'Competent: C, C#, HTML, CSS, TypeScript - Familiar: PHP, Python, Ruby, C++, CUDA C++',
+      details:
+          'Competent: C, C#, HTML, CSS, TypeScript - Familiar: PHP, Python, Ruby, C++, CUDA C++',
     ),
     SkillCategory(
       category: 'Databases',
@@ -159,14 +157,8 @@ const myResume = Resume(
       category: 'Web',
       details: 'Node, Express, Next.js, .NET, REST APIs',
     ),
-    SkillCategory(
-      category: 'Parallel',
-      details: 'OpenMP, ILGPU',
-    ),
-    SkillCategory(
-      category: 'Environments',
-      details: 'Linux, Docker, Windows',
-    ),
+    SkillCategory(category: 'Parallel', details: 'OpenMP, ILGPU'),
+    SkillCategory(category: 'Environments', details: 'Linux, Docker, Windows'),
   ],
   activitiesAndLeadership: [
     ActivityItem(

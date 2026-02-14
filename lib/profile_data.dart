@@ -16,7 +16,7 @@ class Profile {
   });
 }
 
-const myProfile = Profile(
+const profile = Profile(
   name: 'Eric Orr',
   title: 'CS STUDENT',
   phone: '+1 (503) 983-3279',
