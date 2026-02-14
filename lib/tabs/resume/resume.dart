@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project3/resume_data.dart';
+import 'package:project3/tabs/resume/resume_data.dart';
 
 class ResumeTab extends StatelessWidget {
   const ResumeTab({super.key});

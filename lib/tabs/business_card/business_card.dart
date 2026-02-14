@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project3/profile_data.dart';
+import 'package:project3/tabs/business_card/profile_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BusinessCardTab extends StatelessWidget {

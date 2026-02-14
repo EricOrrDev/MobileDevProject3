@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'business_card.dart';
-import 'resume.dart';
-import 'predictor.dart';
+import 'tabs/business_card/business_card.dart';
+import 'tabs/resume/resume.dart';
+import 'tabs/predictor/predictor.dart';
 
 void main() {
   runApp(const MyApp());
